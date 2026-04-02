@@ -31,7 +31,6 @@ fun getShapeDescription(shape: Shape): String {
     }
 }
 
-
 // NULLTEST
 fun printTextLength(text: String?) {
     if (text != null) {
