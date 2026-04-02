@@ -65,3 +65,53 @@ println(numberSet) // 출력: [1, 2, 3]
 val mutableListFromSet = numberSet.toMutableList()
 mutableListFromSet.add(4)
 println(mutableListFromSet) // 출력: [1, 2, 3, 4]
+
+println()
+println("reduce 살펴보기")
+val numbers1 = listOf(1, 2, 3, 4, 5) // 합계: 15
+val sumByReduce = numbers1.reduce { accumulator, current ->
+    println("$accumulator + $current")
+    accumulator + current
+}
+println(sumByReduce)
+
+println("fold")
+println("fold는 reduce랑 다르게 초기값 제공")
+val numbers2 = listOf(1, 2, 3, 4, 5)
+
+// 초기값을 100으로 시작하여 모든 요소를 더함
+val sumByFold = numbers2.fold(100) { accumulator, current ->
+    println("$accumulator + $current")
+    accumulator + current
+}
+println(sumByFold) // 출력: 115
+
+println()
+println("*** foreach ***")
+println()
+
+val fruits2 = listOf("사과", "바나나", "딸기")
+
+// for 루프 사용
+for (fruit in fruits2) {
+    println("${fruit}!")
+}
+
+// forEach 사용
+fruits2.forEach { fruit -> println("${fruit}!") }
+
+// 'it'을 사용하면 더 간결해진다.
+fruits2.forEach { println("${it}!") }
+
+println()
+println("*** map ***")
+println()
+val numbers3 = listOf(1, 2, 3, 4, 5)
+
+// 각 숫자를 제곱한 새로운 리스트 만들기
+val squaredNumbers = numbers3.map { it * it }
+println(squaredNumbers) // 출력: [1, 4, 9, 16, 25]
+
+// 각 과일의 이름 길이를 담은 리스트 만들기
+val nameLengths = fruits2.map { it.length }
+println(nameLengths) // 출력: [2, 3, 2]
